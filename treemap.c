@@ -182,17 +182,17 @@ Pair * upperBound(TreeMap * tree, void* key) {
     
     while (node != NULL){
         if (is_equal(tree,node->pair->key,key)){
-            tree->current = node;
-            return node->pair;
+            ub = node;
+            break;
         }
-        else if (tree->lower_than(node->pair->key, ub->pair->key) == 1){
+        else if (tree->lower_than(node->pair->key,key) == 1){
             ub = node;
             tree->current = node;
-            node = node->right;
+            node = node->left;
         }
         else{
             tree->current = node;
-            node = node->left;
+            node = node->right;
         }
     }
     return ub->pair;
