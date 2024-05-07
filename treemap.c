@@ -85,8 +85,10 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
             return node->pair;
         }
         else{
-            if (tree->lower_than(node->pair->key,key) == 1) node = node->right;
-            else node = node->left;
+            if (tree->lower_than(node->pair->key,key) == 1)
+                node = node->right;
+            else
+                node = node->left;
         }
     }
     return node->pair;
